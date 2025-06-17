@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body.light {
+    @apply bg-gray-100 text-gray-900;
+}
+
+body.dark {
+    @apply bg-gray-900 text-white;
+}
+
+.animate-fadeIn {
+    animation: fadeIn 1s ease-in;
+}
+
+.animate-slideUp {
+    animation: slideUp 0.5s ease-out;
+    -webkit-animation: slideUp 0.5s ease-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}

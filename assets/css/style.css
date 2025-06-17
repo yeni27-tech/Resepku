@@ -1,0 +1,252 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Hapus body.dark agar tidak aktif */
+body {
+    @apply bg-gray-100 text-gray-900;
+}
+
+/* Custom Theme CSS untuk Resepku */
+
+/* Global Styles */
+:root {
+    --primary-color: #f97316;
+    /* Orange-500 */
+    --secondary-color: #F97316;
+    /* Amber-400 */
+    --text-color: #1f2937;
+    /* Gray-800 */
+    --text-light: #6b7280;
+    /* Gray-500 */
+    --light-bg: #f9fafb;
+    /* Gray-50 */
+    --white: #ffffff;
+    --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --card-radius: 0.75rem;
+    --transition: all 0.3s ease;
+
+    /* Hindari dark-mode variables */
+    --background: var(--light-bg);
+    --card-bg: var(--white);
+}
+
+/* Body */
+body {
+    font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    color: var(--text-color);
+    background-color: var(--light-bg);
+    line-height: 1.6;
+    transition: var(--transition);
+}
+
+/* Background Pattern */
+.bg-pattern {
+    background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    background-size: 20px 20px;
+}
+
+/* Typography */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: 600;
+    line-height: 1.2;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-fadeIn {
+    animation: fadeIn 0.6s ease-out forwards;
+}
+
+@keyframes pulse {
+
+    0%,
+    100% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+.animate-pulse {
+    animation: pulse 2s infinite;
+}
+
+.animate-bounce {
+    animation: none !important;
+    transition: transform 0.3s ease;
+}
+
+.animate-bounce:hover {
+    transform: translateY(-5px);
+}
+
+/* Cards */
+.card {
+    border-radius: var(--card-radius);
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+
+/* Text limiting */
+.line-clamp-1,
+.line-clamp-2 {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.line-clamp-1 {
+    -webkit-line-clamp: 1;
+}
+
+.line-clamp-2 {
+    -webkit-line-clamp: 2;
+}
+
+/* Scrollbar */
+.category-slider {
+    scrollbar-width: thin;
+    scrollbar-color: var(--primary-color) var(--light-bg);
+}
+
+.category-slider::-webkit-scrollbar {
+    height: 6px;
+}
+
+.category-slider::-webkit-scrollbar-track {
+    background: var(--light-bg);
+    border-radius: 10px;
+}
+
+.category-slider::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+
+/* Navigation */
+.nav-link {
+    position: relative;
+    color: var(--text-light);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--primary-color);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -2px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+.nav-link.active {
+    color: var(--primary-color);
+}
+
+
+/* Alert */
+.alert {
+    padding: 0.75rem 1.25rem;
+    border-radius: 0.375rem;
+    font-weight: 500;
+}
+
+.alert-primary {
+    background-color: rgba(249, 115, 22, 0.1);
+    color: var(--primary-color);
+}
+
+/* Dropdown Fix (selalu light mode) */
+.dropdown-menu {
+    background-color: #ffffff !important;
+    color: #333333 !important;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+
+.dropdown-menu a {
+    color: #333 !important;
+}
+
+.dropdown-menu a:hover {
+    background-color: #f3f4f6 !important;
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+    h1 {
+        font-size: 1.875rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
+.button-akun {
+    background: var(--gradient-primary);  /* Oranye gradien */
+    color: #ffffff;                        /* Teks selalu putih */
+    padding: 0.75rem 1.5rem;
+    border-radius: 9999px;
+    font-weight: 600;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+    transition: var(--transition);
+}
+
+.button-akun::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    /* background: var(--gradient-secondary); hover gradient */
+    z-index: 0;
+    transition: var(--transition);
+}
+
+.button-akun:hover::before {
+    left: 0;
+}
+
+.button-akun span {
+    position: relative;
+    z-index: 2; /* Supaya teks tetap di atas lapisan hover */
+    color: #ffffff !important; /* Paksa putih */
+}
